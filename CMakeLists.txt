@@ -27,10 +27,7 @@ target_link_libraries(TicTacToe PRIVATE gameManager)
 install(TARGETS TicTacToe
     RUNTIME DESTINATION bin)
 
-install(DIRECTORY gameManager/include/.
-    inputHandler/include/.
-    processGameInput/include/.
-    renderer/include/.
+install(DIRECTORY include/.
     DESTINATION include   
 )
 
