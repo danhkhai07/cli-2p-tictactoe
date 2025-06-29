@@ -22,3 +22,16 @@ add_subdirectory(renderer)
 
 # Establish main -> gameManager
 target_link_libraries(TicTacToe PRIVATE gameManager)
+
+# Install package
+install(TARGETS TicTacToe
+    RUNTIME DESTINATION bin)
+
+install(DIRECTORY gameManager/include/.
+    inputHandler/include/.
+    processGameInput/include/.
+    renderer/include/.
+    DESTINATION include   
+)
+
+install(FILES logs.txt README.md DESTINATION .)
