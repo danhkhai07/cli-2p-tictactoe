@@ -1,1 +1,0 @@
-add_library(processGameInput STATIC ${CMAKE_CURRENT_SOURCE_DIR}/src/processGameInput.cpp)
