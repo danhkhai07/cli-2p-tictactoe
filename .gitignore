@@ -1,2 +1,3 @@
-./build
+build/
 /plan.txt
+.vscode/
