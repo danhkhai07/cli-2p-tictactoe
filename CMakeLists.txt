@@ -15,10 +15,7 @@ endif()
 add_executable(TicTacToe ${CMAKE_SOURCE_DIR}/main.cpp)
 
 # Add subdirectories
-add_subdirectory(gameManager)
-add_subdirectory(inputHandler)
-add_subdirectory(processGameInput)
-add_subdirectory(renderer)
+add_subdirectory(src)
 
 # Establish main -> gameManager
 target_link_libraries(TicTacToe PRIVATE gameManager)
