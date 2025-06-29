@@ -1,0 +1,1 @@
+add_library(inputHandler STATIC ${CMAKE_CURRENT_SOURCE_DIR}/src/inputHandler.cpp)
