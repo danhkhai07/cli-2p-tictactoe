@@ -1,9 +1,7 @@
-add_library(gameManager STATIC gameManager/gameManager.cpp)
-add_library(inputHandler STATIC inputHandler/inputHandler.cpp)
-add_library(GameStateEvaluator STATIC GameStateEvaluator/GameStateEvaluator.cpp)
-add_library(renderer STATIC renderer/renderer.cpp)
+add_library(gameManager STATIC gameManager.cpp)
 
-# Establish dependencies
-target_link_libraries(gameManager PRIVATE inputHandler)
-target_link_libraries(gameManager PRIVATE renderer)
-target_link_libraries(gameManager PRIVATE GameStateEvaluator)
+# Add include path
+target_include_directories(gameManager PRIVATE ${CMAKE_SOURCE_DIR}/include)
+
+# Establish dependency
+target_link_libraries(TicTacToe PRIVATE gameManager)

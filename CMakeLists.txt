@@ -12,13 +12,10 @@ if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 endif()
 
 # Add executable
-add_executable(TicTacToe ${CMAKE_SOURCE_DIR}/main.cpp)
+add_executable(TicTacToe ${CMAKE_SOURCE_DIR}/src/main.cpp)
 
 # Add subdirectories
 add_subdirectory(src)
-
-# Establish main -> gameManager
-target_link_libraries(TicTacToe PRIVATE gameManager)
 
 # Install package
 install(TARGETS TicTacToe
