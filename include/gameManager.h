@@ -10,9 +10,8 @@ namespace GameManager {
     /// @brief Loop function
     void Loop();
 
-
-    enum class Player {None, O, X};
-    enum class Winner {None, O, X, Draw};
+    enum class Player {None, O, X}; // Player list
+    enum class Winner {None, O, X, Draw}; // Game result list
 
     struct GameState {
         /// @brief 2D game board; [1,2] on the board corresponds with [1,2] in the vector.
@@ -21,7 +20,7 @@ namespace GameManager {
         int boardSize = 0;
         /// @brief Minimum number of consecutive X or O to win.
         int minimumToWin = 0;
-        /// @brief 1: X's turn; 0: O's turn.
+        /// @brief Player::X : X's turn; Player::O : O's turn.
         Player currentPlayer;
         /// @brief Game's winner at the moment.
         Winner winner;
@@ -44,15 +43,25 @@ namespace GameManager {
             /// @brief Reset the game to a clean, new board.
             void resetBoard();
 
-            /// @brief 
+            /// @brief Set game rules and clean board.
             void setGameRules();
 
-        private:
+            /// @brief The move's player
+            /// @return 'X' or 'O'
+            char currentPlayer();
+
+            /// @brief Board's size
+            /// @return Length of a side of the square board
+            int boardSize();
+
             /// @brief Calculate game state and change variables
-            void calculateGameState();
+            Winner calculateGameState();
+
+        private:
+            /// @brief Game state - struct type that contains variables that define the game state
+            GameState state;
+
     };
 
-    /// @brief Game state - struct type that contains variables that define the game state
-    extern GameState state;
     extern Game game;
 };
