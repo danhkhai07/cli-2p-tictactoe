@@ -2,37 +2,21 @@
 
 #include <iostream>
 #include <vector>
+#include <thread> // sleep_for, sleep_until
+#include <chrono> // ms, ns, ...
 
 namespace GameManager {
     GameState state;
     Game game;
 
     void Start(){
-        int boardSize, minimumToWin;
-        std::cout << "Set game rules:\n";
-        while (true){
-            std::cout << "   boardSize = "; std::cin >> boardSize;
-            if (std::cin.fail()){
-                std::cin.clear();
-                std::cin.ignore(1000, '\n');
-                continue;
-            }   
-            break;
-        }
-        while (true){
-            std::cout << "   minimumToWin = "; std::cin >> minimumToWin;
-            if (std::cin.fail()){
-                std::cin.clear();
-                std::cin.ignore(1000, '\n');
-                continue;
-            }   
-            break;
-        }
-
-        game.initiateBoard(boardSize,minimumToWin);
+        std::cout << "CLI Two-Player Tic Tac Toe - Written by danhkhai07\n";
+        std::cout << "- Github repository: https://github.com/danhkhai07/cli-2p-tictactoe\n";
+        GameManager::Loop();
     }
 
     void Loop(){
+
         game.renderBoard();
     }
 
@@ -80,13 +64,45 @@ namespace GameManager {
         state.moveCount = 0;
     }
 
-    void Game::initiateBoard(int boardSize, int minimumToWin){
+    void Game::calculateGameState(){
+
+    }
+
+    void Game::setGameRules(){
+        int boardSize, minimumToWin;
+        std::cout << "Note: This act will erase the board and reset the game.\n";
+        std::cout << "Set game rules:\n";
+        while (true){
+            std::cout << "   boardSize (integer from 1-9) = "; std::cin >> boardSize;
+            if (std::cin.fail()){
+                std::cout << "Invalid input.";
+                std::cin.clear();
+                std::cin.ignore(1000, '\n');
+                continue;
+            }   
+            if (boardSize <= 0 || boardSize > 9){
+                std::cout << "Out of range!\n";
+                continue;
+            }
+            break;
+        }
+        while (true){
+            std::cout << "   minimumToWin (integer > 0 && <= boardSize) = "; std::cin >> minimumToWin;
+            if (std::cin.fail()){
+                std::cout << "Invalid input.";
+                std::cin.clear();
+                std::cin.ignore(1000, '\n');
+                continue;
+            }   
+            if (minimumToWin <= 0 || minimumToWin > boardSize){
+                std::cout << "Out of range!\n";
+                continue;
+            }
+            break;
+        }
+
         state.boardSize = boardSize;
         state.minimumToWin = minimumToWin;
         resetBoard();
-    }
-
-    void Game::calculateGameState(){
-
     }
 };

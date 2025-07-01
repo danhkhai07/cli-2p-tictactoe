@@ -45,9 +45,7 @@ namespace GameManager {
             void resetBoard();
 
             /// @brief 
-            /// @param boardSize 
-            /// @param minimumToWin 
-            void initiateBoard(int boardSize, int minimumToWin);
+            void setGameRules();
 
         private:
             /// @brief Calculate game state and change variables
