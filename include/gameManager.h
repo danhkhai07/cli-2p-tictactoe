@@ -2,20 +2,7 @@
 
 #include <vector>
 
-struct GameState {
-    /// @brief 2D 3x3 game board; [1,2] on the board corresponds with [1,2] in the vector.
-    std::vector<std::vector<int>> gameBoard{4, std::vector<int> (4)};
-
-    /// @brief 1: X's turn; 0: O's turn.
-    int currentPlayer = 1; 
-    /// @brief true: Game is in progress; false: Game has not started or is already done.
-    bool inProgress = false;
-    /// @brief Game's winner at the moment. 'N': NULL - Undecided winner.
-    char winner = 'N';
-    int moveCount = 0;
-};
-
-namespace gameManager {
+namespace GameManager {
 
     /// @brief Start function
     void Start();
@@ -23,11 +10,28 @@ namespace gameManager {
     /// @brief Loop function
     void Loop();
 
+
+    enum class Player {None, O, X};
+    enum class Winner {None, O, X, Draw};
+
+    struct GameState {
+        /// @brief 2D game board; [1,2] on the board corresponds with [1,2] in the vector.
+        std::vector<std::vector<Player>> gameBoard;
+        /// @brief Length of square board
+        int boardSize = 0;
+        /// @brief Minimum number of consecutive X or O to win.
+        int minimumToWin = 0;
+        /// @brief 1: X's turn; 0: O's turn.
+        Player currentPlayer;
+        /// @brief Game's winner at the moment.
+        Winner winner;
+        int moveCount;
+    };
+
     /// @brief Game entity
-    class game {
+    class Game {
 
         public:
-
             /// @brief Make a move on [x,y] as the current player (X or O)
             /// @param x Move's row (1-3)
             /// @param y Move's column (1-3)
@@ -40,11 +44,17 @@ namespace gameManager {
             /// @brief Reset the game to a clean, new board.
             void resetBoard();
 
-        private:
-            /// @brief Game state - struct type that contains variables that define the game state
-            GameState state;
-
             /// @brief 
+            /// @param boardSize 
+            /// @param minimumToWin 
+            void initiateBoard(int boardSize, int minimumToWin);
+
+        private:
+            /// @brief Calculate game state and change variables
             void calculateGameState();
     };
+
+    /// @brief Game state - struct type that contains variables that define the game state
+    extern GameState state;
+    extern Game game;
 };

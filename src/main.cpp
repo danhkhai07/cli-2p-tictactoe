@@ -1,6 +1,9 @@
+#include "gameManager.h"
+
 #include <iostream>
 
 int main(){
-    std::cout << "Reached.";
+    GameManager::Start();
+    GameManager::Loop();
     return 0;
 }

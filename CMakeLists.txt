@@ -14,6 +14,12 @@ endif()
 # Add executable
 add_executable(TicTacToe ${CMAKE_SOURCE_DIR}/src/main.cpp)
 
+# Add include path
+target_include_directories(TicTacToe PRIVATE ${CMAKE_SOURCE_DIR}/include)
+
+# Establish dependency
+target_link_libraries(TicTacToe PRIVATE gameManager)
+
 # Add subdirectories
 add_subdirectory(src)
 
