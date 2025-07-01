@@ -1,7 +1,10 @@
-Versions name structure: VERSION-VERSION'S NAME(-WO)
-- WO: Windows-only
-
-e.g. 1.1-CLS-WO
-    - 1.1: Version
-    - CLS: Version's name - the version that integrates clear screen after each move.
+Versions name structure:
+    VERSION-VERSION'S NAME(-WO)
     - WO: Windows-only
+
+    e.g. 1.1-CLS-WO
+        - 1.1: Version
+        - CLS: Version's name - the version that integrates clear screen after each move.
+        - WO: Windows-only
+
+Each version consists of the source files as well as the package that is portable (in the PACKAGE folder)
