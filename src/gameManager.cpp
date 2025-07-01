@@ -219,7 +219,6 @@ namespace GameManager {
 
     void Game::setGameRules(){
         int boardSize, minimumToWin;
-        std::cout << "Note: This act will erase the board and reset the game.\n";
         std::cout << "Set game rules:\n";
         while (true){
             std::cout << "   boardSize (integer from 1-9) = "; std::cin >> boardSize;
