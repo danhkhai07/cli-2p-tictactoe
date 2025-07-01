@@ -6,6 +6,7 @@
 // #include <chrono> // ms, ns, ...
 #include <string>
 #include <utility>
+#include <stdlib.h>
 
 namespace GameManager {
     Game game;
@@ -62,7 +63,7 @@ namespace GameManager {
             }
 
             if (err == 0){
-                std::cout << "==============================\n";
+                system("CLS");
                 game.renderBoard();
                 std::cout << '\n';
                 Winner result = game.calculateGameState();
