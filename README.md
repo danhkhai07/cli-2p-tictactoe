@@ -1,9 +1,7 @@
 # CLI 2 player Tic-Tac-Toe
 
 ## How to play
-- Read note.txt to see which versions are compatible with your OS.
-- Pick a version you would like (e.g 1.1-CLS-WO)
-- Open PACKAGE/bin/TicTacToe.exe
+- Download binary from Releases with compatible version.
 
 ## My Objectives
 - Get back to the flow of coding.
