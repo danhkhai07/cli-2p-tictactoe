@@ -7,8 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Change install path
 if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-    message(STATUS "Setting default CMAKE_INSTALL_PREFIX path to ${CMAKE_BINARY_DIR}/install")
-    set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE STRING "Install path" FORCE)
+    message(STATUS "Setting default CMAKE_INSTALL_PREFIX path to ${CMAKE_SOURCE_DIR}/PACKAGE")
+    set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}/PACKAGE" CACHE STRING "Install path" FORCE)
 endif()
 
 # Add executable
