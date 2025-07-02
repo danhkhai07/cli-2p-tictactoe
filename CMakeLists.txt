@@ -31,6 +31,3 @@ install(TARGETS TicTacToe
 
 # Headers
 install(DIRECTORY include/. DESTINATION include)
-
-# Other files
-install(FILES logs.txt README.md DESTINATION .)
