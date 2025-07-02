@@ -24,11 +24,13 @@ target_link_libraries(TicTacToe PRIVATE gameManager)
 add_subdirectory(src)
 
 # Install package
+
+# Executable
 install(TARGETS TicTacToe
     RUNTIME DESTINATION bin)
 
-install(DIRECTORY include/.
-    DESTINATION include   
-)
+# Headers
+install(DIRECTORY include/. DESTINATION include)
 
+# Other files
 install(FILES logs.txt README.md DESTINATION .)
