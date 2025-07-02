@@ -90,6 +90,9 @@ namespace GameManager {
         }
         std::cout << "Thanks for playing the game!\n";
         std::cout << "Brought to you by danhkhai07.\n";
+        std::cin.get();
+
+        return;
     }
 
     //Define class Game
