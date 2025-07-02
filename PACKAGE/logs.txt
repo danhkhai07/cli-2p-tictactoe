@@ -1,4 +1,0 @@
-Written in format: "- DATE/MONTH/YEAR: Logs content"
-
-- 29/06/2025: Initialise project.
-- 01/07/2025: Done 1.0 - most viable product.
